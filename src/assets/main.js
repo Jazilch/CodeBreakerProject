@@ -15,3 +15,16 @@ function setHiddenFields(){
   }
   attempt.value = "0";
 }
+
+function setMessage(message){
+  document.getElementById('message').innerHTML = message;
+}
+
+function validateInput(input){
+  if(input.length != 4){
+    setMessage('Guesses must be exactly 4 characters long.');
+    return false;
+  }
+    return true;
+
+}
