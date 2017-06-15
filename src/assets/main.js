@@ -11,8 +11,13 @@ function guess() {
       return;
     }
     attempt.value++;
-}
 
+    if(getResults(input.value){
+      setMessage('You Win! :)');
+    }else if(attempt.value >= 10){
+      setMessage('You Lose! :(');
+    }
+}
 
 function getResults(input){
   let html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
@@ -25,9 +30,14 @@ function getResults(input){
       html += '<span class="glyphicon glyphicon-remove"></span>';
     }
   }
+  html += '</div></div>';
+  document.getElementById('results').innerHTML += html;
+
+  if(input == answer.value){
+    return true;
+  }
+  return false;
 }
-html += '</div></div>';
-document.getElementById('results').innerHTML += html;
 
 function setHiddenFields(){
   answer.value = Math.floor(Math.random() * 10000).toString();
